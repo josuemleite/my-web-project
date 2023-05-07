@@ -34,7 +34,7 @@ public class MySQLUserDAO implements UserDAO {
 				         	+ "SET nome = ?, "
 				         	+ "sexo = ?, "
 				         	+ "email = ? "
-				         + "WHERE id = ?";
+				         	+ "WHERE id = ?";
 		
 		
 		db.prepareStatement(sqlUpdate);
