@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 06-Maio-2023 às 23:01
+-- Tempo de geração: 08-Jun-2023 às 22:34
 -- Versão do servidor: 8.0.27
 -- versão do PHP: 7.4.26
 
@@ -37,7 +37,16 @@ CREATE TABLE IF NOT EXISTS `companies` (
   `user_id` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Extraindo dados da tabela `companies`
+--
+
+INSERT INTO `companies` (`id`, `name`, `role`, `start`, `end`, `user_id`) VALUES
+(2, 'Avatech', 'TI', '2023-05-05', '2023-05-07', 3),
+(3, 'Tesla', 'Automóvel', '2006-04-05', NULL, 4),
+(4, 'Tupã', 'Hardware', '2023-06-08', NULL, 6);
 
 -- --------------------------------------------------------
 
@@ -53,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `user_id` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `posts`
@@ -67,7 +76,33 @@ INSERT INTO `posts` (`id`, `content`, `post_date`, `user_id`) VALUES
 (5, 'Olá da Rosânia', '2023-05-06', 5),
 (6, 'Olá da Rosânia 1', '2023-05-06', 5),
 (7, 'Olá da Rosânia 2', '2023-05-06', 5),
-(8, 'Olá da Rosânia 3', '2023-05-06', 5);
+(8, 'Olá da Rosânia 3', '2023-05-06', 5),
+(9, 'Hello World!', '2023-06-08', 6);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `services`
+--
+
+DROP TABLE IF EXISTS `services`;
+CREATE TABLE IF NOT EXISTS `services` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `type_of_service` varchar(128) NOT NULL,
+  `value_per_hour` double NOT NULL,
+  `expertise_level` varchar(128) NOT NULL,
+  `portfolio` varchar(256) NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Extraindo dados da tabela `services`
+--
+
+INSERT INTO `services` (`id`, `type_of_service`, `value_per_hour`, `expertise_level`, `portfolio`, `user_id`) VALUES
+(4, 'Back-end', 200.5, 'Estagiário', 'github.com/devfalido', 6);
 
 -- --------------------------------------------------------
 
@@ -82,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `sexo` enum('M','F') DEFAULT NULL,
   `email` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `users`
@@ -93,7 +128,8 @@ INSERT INTO `users` (`id`, `nome`, `sexo`, `email`) VALUES
 (2, 'Luiza Carvalho', 'F', 'lu@mail.com'),
 (3, 'Elenice Carvalho', 'F', 'le@mail.com'),
 (4, 'Noé Carvalho', 'M', 'noe@mail.com'),
-(5, 'Rosânia Carvalho', 'F', 'ro@mail.com');
+(5, 'Rosânia Carvalho', 'F', 'ro@mail.com'),
+(6, 'Josué M. Leite', 'M', 'josue@email.com');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

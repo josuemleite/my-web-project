@@ -9,7 +9,6 @@ public class Company {
 	private String role;
 	private Date start;
 	private Date end;
-	
 	private User user;
 	
 	public Company() {

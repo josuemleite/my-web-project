@@ -202,7 +202,7 @@ public class CompaniesController extends HttpServlet {
 			Company company = dao.findById(companyId);
 			
 			if (company == null)
-				throw new ModelException("Empresa não encontrada para deleção.");
+				throw new ModelException("Empresa não encontrada para remoção.");
 			
 			if (dao.delete(company)) {
 				ControllerUtil.sucessMessage(req, "Empresa '" + company.getName() + "' deletada com sucesso.");

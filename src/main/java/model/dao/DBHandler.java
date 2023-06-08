@@ -72,6 +72,17 @@ public class DBHandler {
 			throw new ModelException("Erro ao atribuir inteiro", e);
 		}
 	}
+	
+	public void setDouble(int i, double value) throws ModelException {
+		validatePreparedStatement();
+		
+		try {
+			preparedStatement.setDouble(i, value);
+		} catch (SQLException e) {
+			close();
+			throw new ModelException("Erro ao atribuir inteiro", e);
+		}
+	}
 
 	public int executeUpdate() throws ModelException  {
 		validatePreparedStatement();
@@ -132,6 +143,15 @@ public class DBHandler {
 		} catch (SQLException e) {
 			close();
 			throw new ModelException("Erro ao chamar getInt", e);
+		}
+	}
+	
+	public double getDouble(String column) throws ModelException {
+		try {
+			return resultSet.getDouble(column);
+		} catch (SQLException e) {
+			close();
+			throw new ModelException("Erro ao chamar getDouble", e);
 		}
 	}
 	
